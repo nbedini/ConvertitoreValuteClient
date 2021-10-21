@@ -9,9 +9,9 @@
     <DockPanel>
         <Label DockPanel.Dock="Top" Content="Convertitore di Valute" FontSize="40"/>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="30">
-            <Label HorizontalAlignment="Left" Content="Tasso di scambio 1 EUR = 1,1655 USD"/>
-            <Button Content="Scambia Valute" Margin="450,0,40,0"/>
-            <Button Content="Calcola" Margin="0,0,60,0.4"/>
+            <Label HorizontalAlignment="Left" Content="{Binding TassoConversione}"/>
+            <Button Click="ScambiaValute_Click" Content="Scambia Valute" Margin="450,0,40,0"/>
+            <Button Click="Calcola_Click" Content="Calcola" Margin="0,0,60,0.4"/>
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -21,10 +21,10 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Margin="10 40" FontSize="25" HorizontalContentAlignment="Center"/>
-            <ComboBox Grid.Column="1" Margin="10 40"/>
+            <TextBox Text="{Binding Importo}" Grid.Column="0" Margin="10 40" FontSize="25" HorizontalContentAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding TipoValuta1}" ItemsSource="{Binding ListaValute}" DisplayMemberPath="Nome" Grid.Column="1" Margin="10 40"/>
             <Label Grid.Column="2" Margin="10,40,10,39.6" HorizontalContentAlignment="Center" Content="=" FontSize="25"/>
-            <ComboBox Grid.Column="4" Margin="10 40"/>
+            <ComboBox SelectedItem="{Binding TipoValuta2}" ItemsSource="{Binding ListaValute}" DisplayMemberPath="Nome" Grid.Column="4" Margin="10 40"/>
             <Label Grid.Column="3" Margin="10,40,10,39.6" HorizontalContentAlignment="Center" Content="{Binding RisultatoConversione}" FontSize="25"/>
         </Grid>
     </DockPanel>
